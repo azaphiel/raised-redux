@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=0, maximum-scale=1, user-scalable=no" />
+    <meta charset="utf-8">
+    <title>Raised by You</title>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <div class="skill">
+      <div class="outer">
+        <div class="inner" data-progress="100%" data-value="0">
+          <p id="demo2">€0</p>
+          <h2 id="demo">€0</h2>
+          <div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="perc">
+      <h3 id="here">0%</h3>
+    </div>
+
+    <script>
+      var i = 0;
+
+      var perc = 0;
+
+      function buttonClick6() {
+
+        perc += 5;
+        document.getElementById('here').innerHTML = percentage(perc) + "%";
+        document.getElementById('demo2').style.height = (125 - percentage(perc)) + "%";
+      }
+
+      function buttonClick5() {
+        i += 5;
+        document.getElementById('demo').innerHTML = "€" + i;
+        document.getElementById('demo2').innerHTML = "€" + i
+      }
+
+      function percentage(per) {
+        return (100 / 100) * per;
+      }
+
+      $(document).ready(function() {
+        var skillBar = $('.inner');
+        var skillVal = skillBar.attr("data-progress");
+        $(skillBar).animate({
+          height: skillVal
+        }, 2100);
+
+      });
+    </script>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+    
+  </div>
+  </body>
+</html>
